@@ -19,6 +19,8 @@
 }
 .logo{
     letter-spacing: 1px;
+    color:#fff;
+    font-size:18px;
 }
 .user p{
     margin-right: 10px;
