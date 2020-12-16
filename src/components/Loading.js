@@ -6,7 +6,7 @@ function Loading() {
         <div className="loading-section">
             <div className="loader">
                 <div className="border"></div>
-                <i class="fas fa-gamepad"></i>
+                <i className="fas fa-gamepad"></i>
             </div>
         </div>
     )

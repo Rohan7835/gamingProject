@@ -58,16 +58,18 @@ ul .side-link-wrap:active{
     position: relative;
 }
 #active-tab li{
-    color:#91B578 !important;
+    color:#B8E986 !important;
+    background:#2c3a44 !important;
+    border-color:transparent !important
 }
 #active-tab::before{
     content:'';
     position:absolute;
     top:0;
-    left:-5px;
+    left:-9px;
     height:100%;
     width:4px;
-    background:#91B578;
+    background:#B8E986;
 }
 ul .side-link{
     list-style: none;
@@ -87,10 +89,10 @@ ul .side-link:hover{
 
 }
 ul .side-link:active{
-    color:#91B578;
+    color:#B8E986
 
 }ul .active-link{
-    color:#91B578
+    color:#B8E986
 }
 .tab-tooltip{
     position: absolute;
