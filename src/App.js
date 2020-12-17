@@ -8,6 +8,7 @@ import Global from './components/Tabs/Global'
 import Bonuses from './components/Tabs/Bonuses'
 import LeaderBoard from './components/Tabs/LeaderBoard'
 import Loading from  './components/Loading'
+import './index.css'
 
 const App = () => {
   const [loading,setLoading] = useState(true)

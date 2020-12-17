@@ -9,8 +9,8 @@ function TopNav() {
             </div>
             <div className="user flex-justify">
                 <p>rohan7835</p>
-                <div className="user-profile flex-justify">
-                <i className="fas fa-user"></i>
+                <div className="user-profile flex-justify" style={{height:25,width:25}}>
+                    <i className="fas fa-user" style={{fontSize:14}}></i>
                 </div>
             </div>
         </div>

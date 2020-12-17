@@ -18,3 +18,116 @@ a{
 body{
   overflow: hidden !important;
 }
+
+
+
+/* Animations */
+
+/*SLIDE IN SLIDE OUT */
+.slidein-slideout-appear {
+  opacity: 0;
+  transform: scale(0.7);
+}
+.slidein-slideout-appear-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+.slidein-slideout-enter {
+  opacity: 0;
+  transform: scale(0.7) translateX(-400px);
+}
+.slidein-slideout-enter-active {
+  opacity: 1;
+  transform: scale(1) translateX(0px);
+  transition: opacity 300ms, transform 300ms;
+}
+.slidein-slideout-exit {
+  opacity: 1;
+}
+.slidein-slideout-exit-active{
+  transform: scale(0.7) translateX(400px);
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+.slidein-slideout-exit-done{
+  opacity:0
+}
+/* */
+
+/* SLIDE IN FADE OUT */
+.slidein-fadeout-appear {
+  opacity: 0;
+  transform: scale(0.7);
+}
+.slidein-fadeout-appear-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+.slidein-fadeout-enter {
+  opacity: 0;
+  transform: scale(0.7) translateX(-400px);
+}
+.slidein-fadeout-enter-active {
+  opacity: 1;
+  transform: scale(1) translateX(0px);
+  transition: opacity 300ms, transform 300ms;
+}
+.slidein-fadeout-exit {
+  opacity: 1;
+}
+.slidein-fadeout-exit-active{
+  opacity: 0;
+  transform:scale(0.8);
+  transition: opacity 300ms, transform 300ms;
+}
+.slidein-fadeout-exit-done{
+  opacity:0
+}
+/* */
+
+/* FADE IN FADE OUT */
+.fadein-fadeout-appear {
+  opacity: 0;
+  transform: scale(0.7);
+}
+.fadein-fadeout-appear-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 400ms, transform 400ms;
+}
+.fadein-fadeout-enter {
+  opacity: 0;
+  transform: scale(0.7);
+}
+.fadein-fadeout-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 400ms, transform 400ms;
+}
+.fadein-fadeout-exit {
+  opacity: 1;
+}
+.fadein-fadeout-exit-active{
+  opacity: 0;
+  transform:scale(0.8);
+  transition: opacity 400ms, transform 400ms;
+}
+.fadein-fadeout-exit-done{
+  opacity:0
+}
+/* */
+
+.shake{
+  animation:shake .6s linear;
+}
+@keyframes shake{
+  0%{transform: rotateZ(10deg);}
+  20%{transform: rotateZ(-10deg);}
+  40%{transform: rotateZ(10deg);}
+  60%{transform: rotateZ(-10deg);}
+  80%{transform: rotateZ(10deg);}
+  100%{transform: rotateZ(-10deg);}
+}
+/* animation end*/

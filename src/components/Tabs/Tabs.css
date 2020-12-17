@@ -1,11 +1,12 @@
-a{
-    color:#91a5b0;
-    text-decoration:none;
+a {
+    color: #91a5b0;
+    text-decoration: none;
 }
-.control-section{
+
+.control-section {
     position: absolute;
-    left: 70px;
-    top:50px;
+    left: 71px;
+    top: 50px;
     width: 33rem;
     height: 90%;
     display: flex;
@@ -14,122 +15,140 @@ a{
     background-color: rgb(44, 58, 68);
     box-shadow: rgb(44, 58, 68) 0px 1px 30px 0px;
     will-change: transition;
-    z-index:1;
-    color:#91a5b0;
-    padding:10px 0px;
-    animation: slideRight .1s ease;
-    transition:200ms;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    z-index: 999;
+    color: #91a5b0;
+    padding: 10px 0px;
+    transition: 200ms;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    animation: slideRight .3s ease;
 }
-h3{
-    color:rgb(223, 245, 255)
-}
-@keyframes slideRight{
-    0%{
-        transform: translateX(-100%);
+
+@keyframes slideRight {
+    from {
+        transform: translateX(-100%)
     }
-    100%{
-        transform:translateX(0)
+
+    to {
+        transform: translateX(0);
     }
 }
-.control-section .heading{
-    height:30px;
-    border-bottom:1px solid #455664;
-    display:flex;
+
+h3 {
+    color: rgb(223, 245, 255)
+}
+
+.control-section .heading {
+    height: 30px;
+    border-bottom: 1px solid #455664;
+    display: flex;
     justify-content: space-between;
-    align-items:center;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    padding:0px 10px;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0px 10px;
 }
-.heading h3{
-    text-transform:uppercase;
+
+.heading h3 {
+    text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight:500;
-    font-size:15px;
+    font-weight: 500;
+    font-size: 15px;
 }
-.heading .cross{
-    cursor:pointer;
+
+.heading .cross {
+    cursor: pointer;
 }
-.chat-container{
+
+.chat-container {
     display: flex;
     flex-direction: column;
     flex: 1 1 0%;
     z-index: 0;
     position: relative;
 }
-.chat-wrapper{
+
+.chat-wrapper {
     display: flex;
     flex: 1 1 0%;
     position: relative;
 }
-.scrollbar{
+
+.scrollbar {
     position: relative;
     overflow: hidden;
     width: 100%;
     height: 100%;
 }
-.chat-box{
+
+.chat-box {
     position: absolute;
-    min-height:520px;
-    max-height:520px;
+    min-height: 520px;
+    max-height: 520px;
     overflow-Y: scroll;
     margin-right: -17px;
     margin-bottom: -17px;
-    width:100%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
 }
-.message{
+
+.message {
     padding: 0px 10px 10px 10px;
     display: flex;
-    opacity:1;
-    border-bottom:1px solid rgb(51, 67, 77);
-    
+    opacity: 1;
+    border-bottom: 1px solid rgb(51, 67, 77);
+
 }
-.message.random:first-of-type{
-    margin-top:100px !important;
+
+.message.random:first-of-type {
+    margin-top: 100px !important;
 }
-.message.permanent{
+
+.message.permanent {
     background: rgb(52, 67, 77) none repeat scroll 0% 0%;
     border-bottom: 1px solid #b8e986;
-    max-width:508px;
-    position:fixed;
-    top:90px;
-    z-index:999999;
+    max-width: 508px;
+    position: fixed;
+    top: 90px;
+    z-index: 999999;
 }
-.message .left{
+
+.message .left {
     margin-right: 1rem;
     cursor: default;
-    padding:10px 0px;
+    padding: 10px 0px;
 }
-.message .right{
+
+.message .right {
     flex: 1 1 0%;
     line-height: 1.7rem;
     font-size: 12px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width:90%;
+    max-width: 90%;
 }
-.message > .right > .top {
-	font-weight: 700;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	color: rgb(223, 245, 255);
-	display: flex;
-	flex: 1 1 0%;
-	width: 100%;
+
+.message>.right>.top {
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(223, 245, 255);
+    display: flex;
+    flex: 1 1 0%;
+    width: 100%;
 }
-.message > .right > .bottom {
-	font-weight: 500;
-	color: rgb(145, 165, 176);
+
+.message>.right>.bottom {
+    font-weight: 500;
+    color: rgb(145, 165, 176);
     max-width: 100%;
-    line-height:18px;
+    line-height: 18px;
     overflow-wrap: break-word;
 }
-.message-profile{
+
+.message-profile {
     height: 25px;
     width: 25px;
     border-radius: 50%;
@@ -138,66 +157,72 @@ h3{
     text-align: center;
     cursor: pointer;
 }
-.message-profile i{
-    font-size:12px;
+
+.message-profile i {
+    font-size: 12px;
 }
-.chat-input{
+
+.chat-input {
     position: absolute;
-    bottom:0;
+    bottom: 0;
     z-index: 999;
-    width:100%;
-    margin:auto;
-    height:100px;
+    width: 100%;
+    margin: auto;
+    height: 100px;
     text-align: center;
-    background:rgb(44, 58, 68);
-    z-index:11111;
+    background: rgb(44, 58, 68);
+    z-index: 11111;
 }
+
 .chat-input input {
-	width: 92%;
-	height: 25px;
+    width: 95%;
+    height: 47px;
     background: #34434d;
-    border:1px solid #34434d !important;
-	border: none;
+    border: 1px solid #34434d !important;
+    border: none;
     border-radius: 5px;
-    font-size:14px;
-    color:#dff5ff;
-    padding:10px;
+    font-size: 14px;
+    color: #dff5ff;
+    padding: 10px;
 }
-.chat-input input:focus{
-    background:none;
-    border:1px solid #34434d !important;
+
+.chat-input input:focus {
+    background: none;
+    border: 1px solid #34434d !important;
 }
-.chat-input button{
-    width:95%;
-    height:40px;
-    background:#9bce69;
-    color:#fff;
-    border:none;
+
+.chat-input button {
+    width: 95%;
+    height: 47px;
+    background: #9bce69;
+    color: #fff;
+    border: none;
     letter-spacing: 2px;
-    font-weight:500;
-    margin:7px auto;
-    border-radius:5px;
+    font-weight: 500;
+    margin: 7px auto;
+    border-radius: 5px;
     cursor: pointer;
 }
+
 /* width */
 ::-webkit-scrollbar {
     width: 4px;
     display: none;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #1b242b; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #1b242b;
     border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background:#343b41;
-  }
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #343b41;
+}

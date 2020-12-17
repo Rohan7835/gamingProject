@@ -1,12 +1,12 @@
 import React from 'react'
 import './Main.css'
-import Game from './Game'
+import GameContainer from './GameContainer'
 
 function Main() {
 
     return (
         <main className="main-section">
-            <Game />
+            <GameContainer />
         </main>
     )
 }
