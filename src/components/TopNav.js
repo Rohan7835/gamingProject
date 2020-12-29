@@ -1,19 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './TopNav.css'
+import LoginCard from './LoginCard'
+import {CSSTransition} from 'react-transition-group'
 
 function TopNav() {
+    const [activeLoginPage, setActiveLoginPage] = useState(false)
+    const [isLogged, setIsLogged] = useState(false)
+
+    const login = () => {
+        setIsLogged(true)
+    }
+
     return (
+        <>
         <div className="top-nav">
             <div className="logo">
-                Gaming World
+                <h1>GAMING WORLD</h1>
             </div>
-            <div className="user flex-justify">
-                <p>rohan7835</p>
-                <div className="user-profile flex-justify" style={{height:25,width:25}}>
-                    <i className="fas fa-user" style={{fontSize:14}}></i>
+            {isLogged || <div className="user flex-justify">
+                <div className="swing">
+                    <button onClick={() => setActiveLoginPage(true) }>LOG IN</button>
                 </div>
-            </div>
+            </div>}
         </div>
+        <CSSTransition
+        in={activeLoginPage}
+        appear={true}
+        classNames={"slideintop-slideout"}
+        timeout={500}
+        unmountOnExit={true}
+        >
+            <LoginCard onClick={() => setActiveLoginPage(false)} login={login}/>
+        </CSSTransition>
+        </>
     )
 }
 

@@ -1,6 +1,20 @@
 .main-section{
     display: flex;
-    background: rgb(44, 58, 68) none repeat scroll 0% 0%;
+    background:linear-gradient(125deg,#1b202e 5%,#11151F 90%);
     height:100vh;
     width:100vw;
+    position:relative;
+}
+.main-section::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background: url('../shapes-transparent-background-11.png');
+    opacity:0.04;
+    background-size:100%;
+    background-repeat:no-repeat;
+    background-position:center center;
 }

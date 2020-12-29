@@ -1,14 +1,33 @@
 .side-nav{
     height:100%;
     width:70px;
-    background:#34434D;
+    background:#161a25;
     position:absolute;
     top:0;
     left:0;
     flex-direction:column;
     padding-top:20px;
-    border-right:1px solid #455664;
+    border-right:1px solid #181d29;
     z-index:99999;
+}
+.toggle-btn{
+    position:absolute;
+    top:0;
+    left:0;
+    color:#fff;
+    font-size:20px;
+    z-index:99;
+    cursor: pointer;
+    display: none;
+    transition:.3s ease;
+    background:transparent;
+    height:50px;
+    width:50px;
+    text-align: center;
+    line-height: 50px;
+}
+.toggle-btn-active{
+    left:70px !important;
 }
 .flex{
     display: flex;
@@ -23,14 +42,14 @@
     height:40px;
     width:40px;
     border-radius:50%;
-    border:2px solid #82919D;
+    border:2px solid #fff;
     overflow: hidden;
     text-align:center;
     cursor:pointer;
 }
 .user-profile i{
     font-size:25px;
-    color:#82919D;
+    color:#fff;
 }
 .side-navigation-links{
     display:flex;
@@ -43,41 +62,42 @@
 ul .side-link-wrap{
     width: 100%;
     border-radius: 5px;
-    color: #82919D;
+    color: #fff;
     font-size: 20px;
     transition: .3s ease;
     cursor: pointer;
     position: relative;
     text-decoration: none;
     margin: 10px auto;
+    outline:none;
 }
 ul .side-link-wrap:active{
     border:none;
 }
-#active-tab{
+.active-tab{
     position: relative;
 }
-#active-tab li{
-    color:#B8E986 !important;
+.active-tab li{
+    color:#78b5ed !important;
     background:#2c3a44 !important;
     border-color:transparent !important
 }
-#active-tab::before{
+.active-tab::before{
     content:'';
     position:absolute;
     top:0;
     left:-9px;
     height:100%;
     width:4px;
-    background:#B8E986;
+    background:#78b5ed;
 }
 ul .side-link{
     list-style: none;
     height: 50px;
     width: 100%;
     border-radius: 5px;
-    border: 1px solid #455664;
-    color: #82919D;
+    border: 1px solid rgb(207, 207, 207);
+    color: #fff;
     font-size: 20px;
     transition:.3s ease;
     cursor:pointer;
@@ -89,22 +109,37 @@ ul .side-link:hover{
 
 }
 ul .side-link:active{
-    color:#B8E986
+    color:#78b5ed
 
 }ul .active-link{
-    color:#B8E986
+    color:#78b5ed
 }
 .tab-tooltip{
     position: absolute;
     top: 50%;
     left: 132%;
     transform: translateY(-50%);
-    background: #222d35;
+    background:#2c3a44;
     transition: .2s ease;
     padding: 4px;
     border-radius: 4px;
-    color: #fff;
+    color: rgb(223, 245, 255);
     font-size: 13px;
     text-align:center;
     border:1px solid #455664;
+    white-space: nowrap;
+}
+.nav-toggled{
+    transform:translateX(0) !important;
+}
+
+/* responsive*/
+@media (max-width:768px){
+    .side-nav{
+        transform: translateX(-100%);
+        transition:.3s ease;
+    }
+    .toggle-btn{
+        display: block
+    }
 }

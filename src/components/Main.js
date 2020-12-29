@@ -1,6 +1,6 @@
 import React from 'react'
 import './Main.css'
-import GameContainer from './GameContainer'
+import GameContainer from './Game/GameContainer'
 
 function Main() {
 

@@ -31,8 +31,9 @@ const sidebarData = [
     {
         id: 'signout',
         key: "5",
-        name: "sign Out",
+        name: "Sign Out",
         icon: "fas fa-sign-out-alt",
+        path: '/error'
     },
 ]
 export default sidebarData

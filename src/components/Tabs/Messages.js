@@ -9,7 +9,12 @@ function Messages() {
                 <h3>Messages</h3>
                 <Link to='/' className="cross"><div>X</div></Link>
             </div>
-            new page
+            <div className="control-content">
+                <div className="login-error">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Please Login to view Messages</p>
+                </div>
+            </div>
         </div>
     )
 }

@@ -5,15 +5,15 @@ a {
 
 .control-section {
     position: absolute;
-    left: 71px;
+    left: 70px;
     top: 50px;
-    width: 33rem;
+    width: 540px;
     height: 90%;
     display: flex;
     flex-direction: column;
     flex: 1 1 0%;
-    background-color: rgb(44, 58, 68);
-    box-shadow: rgb(44, 58, 68) 0px 1px 30px 0px;
+    background-color: #161a25;
+    box-shadow: #14161b 0px 1px 30px 0px;
     will-change: transition;
     z-index: 999;
     color: #91a5b0;
@@ -22,7 +22,12 @@ a {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     animation: slideRight .3s ease;
 }
-
+@media (max-width:768px){
+    .control-section{
+        width:100% !important;
+        left:0px !important
+    }
+}
 @keyframes slideRight {
     from {
         transform: translateX(-100%)
@@ -64,6 +69,7 @@ h3 {
     flex: 1 1 0%;
     z-index: 0;
     position: relative;
+    padding-bottom:98px;
 }
 
 .chat-wrapper {
@@ -81,8 +87,8 @@ h3 {
 
 .chat-box {
     position: absolute;
-    min-height: 520px;
-    max-height: 520px;
+    min-height: 497px;
+    max-height: 497px;
     overflow-Y: scroll;
     margin-right: -17px;
     margin-bottom: -17px;
@@ -106,10 +112,10 @@ h3 {
 
 .message.permanent {
     background: rgb(52, 67, 77) none repeat scroll 0% 0%;
-    border-bottom: 1px solid #b8e986;
-    max-width: 508px;
-    position: fixed;
-    top: 90px;
+    border-bottom: 1px solid #78b5ed;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
     z-index: 999999;
 }
 
@@ -170,7 +176,6 @@ h3 {
     margin: auto;
     height: 100px;
     text-align: center;
-    background: rgb(44, 58, 68);
     z-index: 11111;
 }
 
@@ -194,7 +199,7 @@ h3 {
 .chat-input button {
     width: 95%;
     height: 47px;
-    background: #9bce69;
+    background: #78b5ed;
     color: #fff;
     border: none;
     letter-spacing: 2px;
@@ -226,3 +231,30 @@ h3 {
 ::-webkit-scrollbar-thumb:hover {
     background: #343b41;
 }
+
+.control-content{
+    height:100%;
+    width:100%;
+    position:relative;
+}
+.control-content .login-error{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+}
+.login-error i{
+    margin:10px;
+    font-size:25px;
+    animation:shake 1s linear infinite;
+    animation-delay:5s;
+}
+@keyframes shake{
+    0%{transform: rotateZ(10deg);}
+    20%{transform: rotateZ(-10deg);}
+    40%{transform: rotateZ(10deg);}
+    60%{transform: rotateZ(-10deg);}
+    80%{transform: rotateZ(10deg);}
+    100%{transform: rotateZ(-10deg);}
+  }

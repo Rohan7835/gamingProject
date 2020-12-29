@@ -1,20 +1,25 @@
-import React, {useState} from 'react'
+import React, {useState , useEffect} from 'react'
 import sidebarData from './sideBarData'
 import './Navbar.css'
 import SidebarItem from './SidebarItem'
 
 function Sidebar() {
-    const [active, setActive] = useState('')
+    const [toggleMenu, setToggleMenu] = useState(false)
 
     return (
         <>
-        <nav className="side-nav flex" onClick={() => setActive(window.location.pathname)}>
-            <div className="user-profile flex-justify">
+        <div className={toggleMenu ? "toggle-btn toggle-btn-active" : "toggle-btn"} 
+            onClick={() => setToggleMenu(prevState => !prevState)}
+        >
+            {toggleMenu ? <i class="fas fa-times"></i> : <i class="fas fa-bars"></i>}
+        </div>
+        <nav className={toggleMenu ? "side-nav flex nav-toggled" : "side-nav flex"}>
+            <div className="user-profile flex-justify" style={{marginBottom:20}}>
                 <i className="fas fa-user"></i>
             </div>
             <ul className="side-navigation-links">
                 {sidebarData.map((data,index) => (
-                    <SidebarItem key={index} data={data}/>
+                    <SidebarItem key={index} data={data} onClick={() => setToggleMenu(false)}/>
                 ))}
             </ul>
         </nav>

@@ -27,7 +27,7 @@ const App = () => {
       <Sidebar />
       <Main />
       <Switch>
-        <Route path="/" exact component={Main}/>
+        <Route path="/" exact/>
         <Route path="/messages" component={Messages}/>
         <Route path="/global" component={Global}/>
         <Route path="/bonuses" component={Bonuses}/>
