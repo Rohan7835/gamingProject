@@ -27,13 +27,6 @@ const sidebarData = [
         name: "Bonuses",
         icon: "fas fa-gift",
         path: '/bonuses'
-    },
-    {
-        id: 'signout',
-        key: "5",
-        name: "Sign Out",
-        icon: "fas fa-sign-out-alt",
-        path: '/error'
-    },
+    }
 ]
 export default sidebarData

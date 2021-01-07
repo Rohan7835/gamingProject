@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 function Global() {
     const [messageArr, setMessageArr] = useState([])
     const [message, setMessage] = useState('')
-    const [inProp , setInprop] = useState(true)
 
 
     const handleSubmit = (e) => {
@@ -26,7 +25,7 @@ function Global() {
             <div className="control-section">
                 <div className="heading">
                     <h3>Global chat</h3>
-                    <Link to='/' className="cross" onClick={() => setInprop(false)}><div>X</div></Link>
+                    <Link to='/' className="cross"><i className="fas fa-times"></i></Link>
                 </div>
                 <div className="chat-container">
                     <div className="chat-wrapper">

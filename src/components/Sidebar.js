@@ -1,4 +1,4 @@
-import React, {useState , useEffect} from 'react'
+import React, {useState} from 'react'
 import sidebarData from './sideBarData'
 import './Navbar.css'
 import SidebarItem from './SidebarItem'
@@ -11,7 +11,7 @@ function Sidebar() {
         <div className={toggleMenu ? "toggle-btn toggle-btn-active" : "toggle-btn"} 
             onClick={() => setToggleMenu(prevState => !prevState)}
         >
-            {toggleMenu ? <i class="fas fa-times"></i> : <i class="fas fa-bars"></i>}
+            {toggleMenu ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
         </div>
         <nav className={toggleMenu ? "side-nav flex nav-toggled" : "side-nav flex"}>
             <div className="user-profile flex-justify" style={{marginBottom:20}}>

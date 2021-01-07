@@ -7,11 +7,11 @@ function Messages() {
         <div className="control-section">
             <div className="heading">
                 <h3>Messages</h3>
-                <Link to='/' className="cross"><div>X</div></Link>
+                <Link to='/' className="cross"><div><i className="fas fa-times"></i></div></Link>
             </div>
             <div className="control-content">
                 <div className="login-error">
-                    <i class="fas fa-exclamation-circle"></i>
+                    <i className="fas fa-exclamation-circle"></i>
                     <p>Please Login to view Messages</p>
                 </div>
             </div>

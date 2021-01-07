@@ -1,39 +1,51 @@
-.top-nav{
-    height:50px;
-    width:calc(100% - 70px);
-    position:absolute;
-    left:0;
-    margin-left:70px;
-    top:0;
-    color:#dff5ff;
+.top-nav {
+    height: 50px;
+    width: calc(100% - 70px);
+    position: absolute;
+    left: 0;
+    margin-left: 70px;
+    top: 0;
+    color: #dff5ff;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    z-index:99;
-    border-bottom:1px solid #1d2230;
+    z-index: 99;
 }
+
 .logo,
-.user{
-    cursor:pointer;
-    margin:auto 20px;
+.user {
+    cursor: pointer;
+    margin: auto 20px;
 }
-.logo{
+
+.logo {
     letter-spacing: 1px;
-    color:#fff;
-    font-size:18px;
+    color: #fff;
+    font-size: 18px;
 }
-.user p{
-    margin-right: 5px;
+
+.user {
+    position: absolute;
+    top: 5px;
+    right: 10%;
+    transform: translate(-10%, -10px);
+    z-index: 999;
 }
-.swing{
+
+.user p {
+    font-size: 17px;
+}
+
+.swing {
     animation: swing ease-in-out 1s infinite alternate;
     transform-origin: center -25px;
 }
-.swing button{
+
+.swing button {
     font-size: 16px;
     color: black;
     letter-spacing: 0.3em;
-    border: 1px solid rgba(255,255,255,0.33);
+    border: 1px solid rgba(255, 255, 255, 0.33);
     padding: 12px 30px;
     box-sizing: border-box;
     -moz-transition: all 0.5s cubic-bezier(0.37, 0.075, 0.265, 1);
@@ -42,13 +54,14 @@
     transition: all 0.5s cubic-bezier(0.37, 0.075, 0.265, 1);
     width: 170px;
     text-align: center;
-    background:#fff;
-    margin-top:33px;
-    margin-left:15px;
-    cursor:pointer;
-    font-family:gamebox;
-    letter-spacing:2px;
+    background: #fff;
+    margin-top: 33px;
+    margin-left: 15px;
+    cursor: pointer;
+    font-family: gamebox;
+    letter-spacing: 2px;
 }
+
 /* .swing button:hover{
     color: #000;
     -moz-box-shadow: gray 0 0 0 25px inset;
@@ -56,40 +69,111 @@
     box-shadow: gray 0 0 0 25px inset;
     border: 1px solid gray;
 } */
-.swing:after{
+.swing:after {
     content: '';
-    position: absolute;  
-    width: 20px; height: 20px;  
+    position: absolute;
+    width: 20px;
+    height: 20px;
     border: 1px solid #999;
-    top: 20px; 
+    top: 20px;
     left: 53%;
     z-index: 0;
     border-bottom: none;
     border-right: none;
     transform: rotate(45deg);
 }
+
 /* nail */
-.swing:before{
+.swing:before {
     content: '';
     position: absolute;
     width: 20px;
     height: 20px;
     top: -11px;
     left: 54%;
-    transform:rotate(45deg);
+    transform: rotate(45deg);
     z-index: 5;
     background: rgb(209, 209, 209);
 }
- 
+
 @keyframes swing {
-    0% { transform: rotate(3deg); }
-    100% { transform: rotate(-3deg); }
+    0% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(-3deg);
+    }
 }
+
 /* responsive*/
-@media (max-width:768px){
-    .top-nav{
-        margin-left:0 !important;
-        width:100% !important;
+@media (max-width:768px) {
+    .top-nav {
+        margin-left: 0 !important;
+        width: 100% !important;
         justify-content: center;
     }
+}
+
+.user-info-details i {
+    margin-left: 6px;
+}
+
+.user-info-details {
+    background: #1B202E;
+    margin-top: 20px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    position: relative;
+    width: 200px;
+    text-align: center;
+    user-select: none;
+}
+
+.dropdown-user {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 250px;
+    border-radius: 5px;
+    transition: all .3s ease;
+    padding: 6px 0px;
+    text-align: left;
+    background: #1E2331;
+    color: #fff;
+    box-shadow: 0px 0px 3px rgb(15, 15, 15);
+    animation: heightPopup .3s ease-in forwards;
+}
+
+@keyframes heightPopup {
+    0% {
+        max-height: 0px !important;
+        height: 0px
+    }
+
+    100% {
+        max-height: 100px;
+        height: 100px;
+        padding-top:20px;
+        transition: max-height height 1s
+    }
+}
+
+.dropdown-user .dropdown-item {
+    list-style: none;
+    opacity: 0;
+    padding: 7px 0px 7px 20px;
+    border-bottom: 1px solid rgb(38, 39, 58);
+    width: 100%;
+    transition: all .1s linear;
+    animation: blurPopup .4s ease forwards;
+    animation-delay: .4s;
+}
+
+.dropdown-user li:hover {
+    color: rgb(107, 175, 207)
+}
+
+.dropdown-user i {
+    min-width: 30px;
 }

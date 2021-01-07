@@ -23,12 +23,11 @@
     height:100%;
     width:100%;
     color:#000;
-    background:url('../shapes-transparent-background-11.png');
+    background:url('../../shapes-transparent-background-11.png');
     opacity:0.1;
     filter: grayscale(100%);
     z-index:-1
 }
-
 .cross-login{
     border-radius: 50%;
     background: gray;
@@ -52,7 +51,35 @@
     color:#000;
 }
 .credentials{
-    margin:100px auto 50px auto;
+    margin:20px auto 50px auto;
+}
+.switchLog{
+    text-align:center;
+    margin:20px auto;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    background:#BFBFBF;
+    max-width:250px;
+    color:rgb(82, 82, 82);
+    padding:3px;
+    border-radius:20px;
+    overflow:hidden;
+    cursor:pointer;
+}
+.switchLog p{
+    width:50%;
+    height:35px;
+    border-radius:15px;
+    line-height:35px;
+}
+.active-log-panel{
+    background:#fff;
+    color:#474747;
+    animation:blurPopup .2s ease;
+}
+.login{
+    margin:10px;
 }
 .login-inputs{
     position:relative
@@ -186,6 +213,8 @@
     padding:20px;
     margin-top:50px;
     color:#000;
+    position:absolute;
+    bottom:-15px;
 }
 .socials i{
     color:#000;
@@ -209,4 +238,24 @@
     font-family:gamebox;
     letter-spacing: 2px;
     margin-top:8px;
+}
+.login{
+    position: relative;
+}
+.reg_status{
+    position:absolute;
+    bottom:-30px;
+    width:100%;
+    text-align:center;
+    color:#0ab927
+}
+.reg_status_false{
+    color:red;
+}
+.loginBtn i{
+    animation: rotateX 1s linear infinite
+}
+@keyframes rotateX{
+    0%{transform:rotate(0deg)}
+    100%{transform:rotate(360deg)}
 }

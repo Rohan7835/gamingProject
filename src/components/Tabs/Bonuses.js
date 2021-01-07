@@ -7,12 +7,14 @@ function Bonuses() {
         <div className="control-section">
             <div className="heading">
                 <h3>Bonuses</h3>
-                <Link to='/' className="cross"><div>X</div></Link>
+                <Link to='/' className="cross"><div><i className="fas fa-times"></i></div></Link>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum eius mollitia accusamus exercitationem consequatur,
-                 suscipit odit modi et sed beatae in quam corrupti nostrum dolores aliquid id, voluptatum rem hic iure? Suscipit
-                  magni asperiores voluptatum architecto ullam vel nisi doloribus unde dolorem, quasi numquam aliquid. Ea aut minima possimus nisi.
-            </p>
+            <div className="control-content">
+                <div className="login-error">
+                    <i className="fas fa-exclamation-circle"></i>
+                    <p>Under Development</p>
+                </div>
+            </div>
         </div>
     )
 }
