@@ -1,21 +1,53 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect} from 'react'
 import './Game.css'
 import { CSSTransition } from 'react-transition-group'
 import LoginCard from '../Login/LoginCard'
 import GameMenu from './GameMenu'
+import { Redirect } from 'react-router-dom'
 
 const GameContainer = () => {
     const [titleTab , setTitleTab] = useState(true)
     const [activeLoginPage, setActiveLoginPage] = useState(false)
     const [showGameMenu, setShowGameMenu] = useState(false)
     const [dropdown, setDropdown] = useState(false)
+    const [userToken, setUserToken] = useState(null)
+    
+    //getting token from local storage
+    useEffect(() => {
+        const token = JSON.parse(localStorage.getItem('token'))
+        if(token){
+            setUserToken(token)
+        }else{
+            setUserToken(null)
+        }
+    },[])
 
+    useEffect(() => {
+        const token = JSON.parse(localStorage.getItem('token'))
+        if(token){
+            setUserToken(token)
+        }else{
+            setUserToken(null)
+        }
+    },[showGameMenu])
+
+    //making game open if user is logged in
+    useEffect(() => {
+        if(userToken != null){
+            console.log('wind')
+            setTitleTab(false)
+            setActiveLoginPage(false)
+            setShowGameMenu(true)
+        }
+    },[userToken])
+    
     const showGame = () => {
         setTitleTab(false)
         setActiveLoginPage(false)
         setShowGameMenu(true)
     }
     const logout = () => {
+        localStorage.removeItem('token')
         setShowGameMenu(false)
         setActiveLoginPage(false)
         setTitleTab(true)
@@ -28,13 +60,14 @@ const GameContainer = () => {
                 showGameMenu ? 
                 <div className="user-info-details">
                     <div className="user-info-title" onClick={() => setDropdown(e => !e)}>
-                        <p>Welcome rohan 
+                        <p>Welcome {userToken && userToken.username} 
                         <span>
                             {dropdown ? <i className="fas fa-caret-up"></i> : <i className="fas fa-caret-down"></i>}
                         </span>
                         </p>
                     </div>
                     {dropdown && <ul className="dropdown-user">
+                        <Redirect to="/"/>  
                         <li className="dropdown-item"><i className="fas fa-user"></i>Go to Profile</li>
                         <li className="dropdown-item" onClick={logout}> <i className="fas fa-sign-out-alt"></i> Logout</li>
                     </ul>}

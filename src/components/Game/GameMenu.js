@@ -38,22 +38,23 @@ const GameTable = () => {
     const [bettingAmount, setBettingAmount] = useState('0.00020000')
     const [currentCell, setCurrentCell] = useState(0)
 
-    let totalCells = [0,1,2,3,4,5,6,7,8,9,10];
+    let totalCells = [1.29,1.67,2.16,2.79,3.61,4.68,6.05,7.82,10.12];
 
     const gameStart = () => {
         setPlayGame(true);
 
     }
-    const first = () => {
+    const playGameLogic = () => {
         const gameRows = document.querySelectorAll('.game-table-row');
         const CookieIcons = document.querySelectorAll('.game-cell .cell-content');
-        console.log("playgame",playGame);
-        console.log("Celle",currentCell);
         
         if(playGame){
             if(currentCell < gameRows.length){
                 gameRows[currentCell].classList.add('active-game-table-row')
                 const activeRowCells = document.querySelectorAll('.active-game-table-row .game-cell');
+                for(let i =0; i < 4 ; i++){
+                    activeRowCells[i].id =i
+                }
                 // if(currentCell >= 1){
                 //     gameRows[currentCell-1].classList.add('prev-game-table-row')
                 // }
@@ -79,28 +80,30 @@ const GameTable = () => {
                         }
                     })
                 }
+                if(currentCell >=1){
+                    gameRows[currentCell-1].classList.add('prev-game-table-row')
+                }
             }else{setPlayGame(false)}
 
         }else if(!playGame){
+            gameRows.forEach(row => row.removeEventListener('click', () => {
+                console.log("click");
+            }))
             //Reset Game
-            if(currentCell >= 1){
-                const activeRow = document.querySelector('.active-game-table-row')
-                activeRow !== null && activeRow.classList.remove('active-game-table-row')
-                const prevRow = document.querySelector('.prev-game-table-row')
-                prevRow !== null && prevRow.classList.remove('prev-game-table-row')
-            }
+            const activeRow = document.querySelector('.active-game-table-row')
+            activeRow !== null && activeRow.classList.remove('active-game-table-row')
+            const prevRow = document.querySelectorAll('.prev-game-table-row')
+            prevRow !== null && prevRow.forEach(row => row.classList.remove('prev-game-table-row'))
             gameRows.forEach(row => row.classList.remove('active-game-table-row'))
             CookieIcons.forEach(cookie => cookie.innerHTML = '<i class="fas fa-cookie"></i>')
             setCurrentCell(0)
         }
     }
-    React.useMemo(() => {
-      first();
-      return
-      
-    },[playGame&&currentCell])
 
-    let bettingInterest = (bettingAmount* 1.29).toFixed(8)
+    useEffect(() => {
+        playGameLogic();
+    })
+
 
     return(
         <div className="gameStart">
@@ -110,7 +113,7 @@ const GameTable = () => {
                     {totalCells.map((cell,index) => {
                         return (
                             <div className="game-table-row" key={index} id={cell}>
-                                <span className="row-outcome"><p>{bettingInterest}</p></span>
+                                <span className="row-outcome"><p>{(bettingAmount*cell).toFixed(8)}</p></span>
                                 <div className="cells">
                                     <div>
                                         <div className="game-cell">

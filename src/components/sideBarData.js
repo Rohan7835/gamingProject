@@ -1,4 +1,4 @@
-
+//sidebar menu items listed
 const sidebarData = [
     {
         id: 'chat',

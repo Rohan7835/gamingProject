@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 function SidebarItem(props) {
-    const [tooltip, setTooltip] = useState(false)
+    const [tooltip, setTooltip] = useState(false) //sideitem tooltip
     
     return (
         <>

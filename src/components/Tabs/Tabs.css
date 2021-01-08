@@ -69,7 +69,7 @@ h3 {
     flex: 1 1 0%;
     z-index: 0;
     position: relative;
-    padding-bottom:98px;
+    /* padding-bottom:98px; */
 }
 
 .chat-wrapper {
@@ -258,3 +258,38 @@ h3 {
     80%{transform: rotateZ(10deg);}
     100%{transform: rotateZ(-10deg);}
   }
+
+.disabled-input{
+    cursor:not-allowed !important;
+    position:relative;
+    user-select: none;
+}
+.disabled-input::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:-10%;
+    background:rgba(22, 26, 37,0.97);
+    border:1px solid #34434d
+}
+.disabled-input input{
+    cursor:not-allowed !important;
+}
+.disabled-input button{
+    cursor:not-allowed !important;
+}
+
+.login-popup-error{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translateX(-50%);
+    font-size:13px;
+    font-weight:500;
+    z-index:9999999
+}
+.login-popup-error span{
+    color:#78b5ed
+}

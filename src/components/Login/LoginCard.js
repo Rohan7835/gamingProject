@@ -2,37 +2,45 @@ import React, { useState} from 'react'
 import { CSSTransition } from 'react-transition-group'
 import './LoginCard.css'
 import Register from './Register'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
  
 const LoginCard = ({showGame,onClick}) => {
-    const [credentials, setCredentials] = useState({ username: '', password:''})
-    const [wrongInfo, setWrongInfo] = useState(false)
-    const [login, setLogin] = useState(true)
-    const [register, setRegister] = useState(false)
+    const [credentials, setCredentials] = useState({ username: '', password:''}) // state to store submitted credentials
+    const [wrongInfo, setWrongInfo] = useState(false)//showing error when invalid credentials is set
+    const [login, setLogin] = useState(true) //showing login menu if true
+    const [register, setRegister] = useState(false) //showing register menu if true
 
-
+    //handling form submit and storing token in local storage
     const handleSubmit = (e) => {
         e.preventDefault()
-        // const login_username = credentials.username
-        // const login_password = credentials.password
+        let formData = new FormData()
+        formData.append("login_username",credentials.username)
+        formData.append("login_password",credentials.password)
 
-        // let formData = new FormData()
-        // formData.append("login_username",login_username)
-        // formData.append("login_password",login_password)
-        
-        // const url = "http://localhost:80/game-backend/login.php"
-        
-        // axios.get(url,formData)
-        //     .then(res => console.log(res))
-        if(credentials.username === 'gaming' && credentials.password === 'gamingworld'){
-            setWrongInfo(false);
-            showGame();
-        }else{
-            setWrongInfo(true)
-        }
+        axios.post('http://localhost:80/game-backend/login.php',formData)
+            .then(res => res)
+            .then(data => {
+                console.log(data)
+                if(data.data === "successsful login"){
+                    localStorage.setItem('token', JSON.stringify(credentials))
+                    setWrongInfo(false);
+                    showGame();
+                }else{
+                    setWrongInfo(true)
+                }
+            })
+        // if(credentials.username === 'gaming' && credentials.password === 'gamingworld'){
+        //     localStorage.setItem('token', JSON.stringify(credentials))
+        //     setWrongInfo(false);
+        //     showGame();
+        // }else{
+        //     setWrongInfo(true)
+        // }
         setCredentials({username: '', password: ''})
     }
 
+    //handling inputs value and sending it to state
     const handleChange = (e) => {
         const {name, value} = e.target
         setCredentials({...credentials,[name]:value})
@@ -40,6 +48,7 @@ const LoginCard = ({showGame,onClick}) => {
 
     return (
         <div className="login-container">
+            <Redirect to="/"/>{/* using redirect to close all openened sidemenu tabs when loginTab is openend*/}
             <div className="login-wrapper">
                 
                 <div className="login-head flex">
@@ -63,7 +72,6 @@ const LoginCard = ({showGame,onClick}) => {
                         <div className="login">
                             <form >
                                 <div className="login-inputs">
-                                    {wrongInfo && <div className="error-msg">Incorrect username or password</div>}
                                     <input type="text" 
                                         placeholder="ENTER YOUR USERNAME (Demo: gaming)" 
                                         name="username" 
@@ -79,6 +87,7 @@ const LoginCard = ({showGame,onClick}) => {
                                 </div>
                                 <button className="loginBtn" type="submit" onClick={handleSubmit} style={{margin:'auto'}}>LOGIN</button>
                             </form>
+                            {wrongInfo && <div className="error-msg">Incorrect username or password</div>}
                         </div>
                     </CSSTransition>
                     <CSSTransition

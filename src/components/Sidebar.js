@@ -4,7 +4,7 @@ import './Navbar.css'
 import SidebarItem from './SidebarItem'
 
 function Sidebar() {
-    const [toggleMenu, setToggleMenu] = useState(false)
+    const [toggleMenu, setToggleMenu] = useState(false) //using this to perform re-render on any sidemenu tab click
 
     return (
         <>

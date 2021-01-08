@@ -80,13 +80,11 @@
 }
 .login{
     margin:10px;
-}
-.login-inputs{
     position:relative
 }
 .error-msg{
     position:absolute;
-    top:-40px;
+    bottom:-40px;
     left:50%;
     transform:translateX(-50%);
     color:rgb(218, 64, 64);

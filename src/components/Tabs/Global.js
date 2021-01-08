@@ -1,12 +1,28 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import './Tabs.css'
 import { Link } from 'react-router-dom'
 
 function Global() {
-    const [messageArr, setMessageArr] = useState([])
+    const [messageArr, setMessageArr] = useState([
+        {message:'hi'},
+        {message:'hello'},
+        {message:'what are you doing'}
+    ])
     const [message, setMessage] = useState('')
+    const [userToken, setUserToken] = useState(null)
+    
+    //getting token from local storage
+    useEffect(() => {
+        const token = JSON.parse(localStorage.getItem('token'))
+        if(token){
+            setUserToken(token)
+            console.log(token)
+        }else{
+            setUserToken(null)
+        }
+    },[])
 
-
+    //handling form submit
     const handleSubmit = (e) => {
         e.preventDefault();
         if(message){
@@ -16,6 +32,7 @@ function Global() {
         setMessage('')
     }
     
+    //handling inputs value
     const handleChange = (e) => {
         const {value} = e.target
         setMessage(value)
@@ -51,7 +68,7 @@ function Global() {
                                             </div>
                                             </div>
                                             <div className="right">
-                                                <div className="top">Roha7835</div>
+                                                <div className="top">Unkown user</div>
                                                 <div className="bottom">{msg.message}</div>
                                             </div>
                                         </div>
@@ -61,7 +78,8 @@ function Global() {
                         </div>
                     </div>
                 </div>
-                <div className="chat-input">
+                <div className={userToken ? "chat-input" : "chat-input disabled-input"}>
+                    {userToken ? "" : <div className="login-popup-error"><p><span>SignIn</span> to Access All Features </p></div>}
                     <form action="">
                         <input type="text" placeholder="Say Something" name="message" value={message} onChange={handleChange}/>
                         <button className="submit" onClick={handleSubmit}>SEND</button>
